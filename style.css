@@ -30,6 +30,10 @@ p{
 	text-align: center;
 }
 
+.btn{
+	cursor: pointer;
+}
+
 .left{
 	float: left;
 }
@@ -55,3 +59,11 @@ p{
 	text-align: center;
 	margin: 0 auto;
 }
+
+#timer:hover{
+	box-shadow: 3px 3px 5px 6px #ccc;
+	background-color: #D3D3D3;
+}
+
+
+

@@ -14,14 +14,16 @@
     	</div>
         <div id="settings">
             <div id="break-time" class="left">
-                <button class="minus btn-settings">-</button>
-                <label>5</label>
-                <button class="add btn-settings">+</button>
+                <label>Break</label>
+                <button class="btn minus btn-settings">-</button>
+                <label id="break">5</label>
+                <button class="btn add btn-settings">+</button>
             </div>
             <div id="work-time" class="right">
-                <button class="minus btn-settings">-</button>
-                <label>25</label>
-                <button class="add btn-settings">+</button>
+                <label>Working time</label>
+                <button class="btn minus btn-settings">-</button>
+                <label id="working-time">25</label>
+                <button class="btn add btn-settings">+</button>
             </div>
         </div>
         <div id="time-zone">        
@@ -30,7 +32,10 @@
             </button>
         </div>
     </div>
+    <script type="text/javascript" src="bower_components/jquery/dist/jquery.min.js"></script>
     <script type="text/javascript" src="js/main.js"></script>
+    <script type="text/javascript" src="js/clock.js"></script>
+
 </body>
 
 </html>
