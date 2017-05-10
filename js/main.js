@@ -2,7 +2,6 @@ $(document).ready(function() {
     $('.btn').click(function(e) {
         console.log(e);
 
-        // addOrDelete(e, "minus");
         var new_time ;
         var break_time;
         var working_time;
@@ -38,5 +37,19 @@ $(document).ready(function() {
         	$("#working-time").text(working_time);
         }
     });
+
+
+    $("#timer").click(function(){
+    	var running = false;
+    	if (!running) {
+    		console.log("not running");
+    		running = true;
+    	}else{
+    		console.log("running");
+    		running = false;
+    	}
+    });
+
+
 
 });
