@@ -45,7 +45,7 @@ $(document).ready(function() {
 
     $("#timer").click(function(){
     	if (!clock.isOn) {
-    		clock.init();
+    		clock.start();
     		clock.isOn = true;
     	}else{
             clock.stop();
