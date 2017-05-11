@@ -32,6 +32,9 @@ p{
 
 .btn{
 	cursor: pointer;
+	border-radius: 5px;
+	background-color: white;
+	border-style: solid;
 }
 
 .left{

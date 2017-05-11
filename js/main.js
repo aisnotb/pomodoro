@@ -1,4 +1,5 @@
 $(document).ready(function() {
+
     $('.btn').click(function(e) {
         console.log(e);
 
@@ -22,6 +23,7 @@ $(document).ready(function() {
         	working_time = (working_time - 1).toString();
         	if (working_time > 0) {
         		$("#working-time").text(working_time);
+        		$("#timer").text(working_time);
         	}else{
         		$("#working-time").text(0);
         	}
@@ -35,21 +37,20 @@ $(document).ready(function() {
         	working_time = parseInt($("#working-time").text());
         	working_time = (working_time + 1).toString();
         	$("#working-time").text(working_time);
+        	$("#timer").text(working_time);
         }
     });
 
+    var clock = new Clock(25);
 
     $("#timer").click(function(){
-    	var running = false;
-    	if (!running) {
-    		console.log("not running");
-    		running = true;
+    	if (!clock.isOn) {
+    		clock.init();
+    		clock.isOn = true;
     	}else{
-    		console.log("running");
-    		running = false;
+            clock.stop();
+    		clock.isOn = false;
     	}
     });
-
-
 
 });
