@@ -24,6 +24,7 @@ $(document).ready(function() {
         	if (working_time > 0) {
         		$("#working-time").text(working_time);
         		$("#timer").text(working_time);
+                clock.decrease();
         	}else{
         		$("#working-time").text(0);
         	}
@@ -38,6 +39,8 @@ $(document).ready(function() {
         	working_time = (working_time + 1).toString();
         	$("#working-time").text(working_time);
         	$("#timer").text(working_time);
+            clock.increase();
+
         }
     });
 

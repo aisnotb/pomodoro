@@ -41,4 +41,16 @@ function Clock(val){
 		}
 	};
 
+	this.increase = function(){
+		time += 1000 * 60;
+		console.log(time);
+	};
+
+	this.decrease = function(){
+		time -= 1000 * 60;
+		console.log(time);
+	};
+
+
+
 }
