@@ -6,6 +6,10 @@ function Clock(val){
 
 	function update(){
 		time -= delta();
+		console.log(time);
+		if (time <= 0) {
+			this.stop();
+		}
 		var formatedTime = timeFormater(time);
 		console.log(formatedTime);
 		$("#timer").text(formatedTime);	
@@ -20,14 +24,23 @@ function Clock(val){
 
 	function timeFormater(timeInMillseconds){
 		var time = new Date(timeInMillseconds);
-		var minutes = time.getMinutes();
-		var seconds = time.getSeconds();
+		var minutes = time.getMinutes().toString();
+		var seconds = time.getSeconds().toString();
+
+		if (minutes < 10) {
+			minutes = "0" + minutes;
+		}
+
+		if (seconds < 10) {
+			seconds = "0" + seconds;
+		}
+
 		return minutes + " : " + seconds;
 	}
 
 	this.start = function(){
 		if (!this.isOn) {
-			interval = setInterval(update, 900);
+			interval = setInterval(update, 10);
 			offset = Date.now();
 			this.isOn = true;
 		}
