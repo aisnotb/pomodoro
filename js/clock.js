@@ -27,7 +27,7 @@ function Clock(val){
 
 	this.start = function(){
 		if (!this.isOn) {
-			interval = setInterval(update, 1000);
+			interval = setInterval(update, 900);
 			offset = Date.now();
 			this.isOn = true;
 		}
