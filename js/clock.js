@@ -5,11 +5,14 @@ function Clock(val){
 	this.isOn = false;
 
 	function update(){
+		console.log(this);
 		time -= delta();
-		console.log(time);
 		if (time <= 0) {
-			this.stop();
+			console.log("time is up");
+			clearInterval(interval);
+			interval = null;
 		}
+		console.log(time);
 		var formatedTime = timeFormater(time);
 		console.log(formatedTime);
 		$("#timer").text(formatedTime);	
