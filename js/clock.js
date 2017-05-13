@@ -5,17 +5,21 @@ function Clock(val){
 	this.isOn = false;
 
 	function update(){
-		console.log(this);
 		time -= delta();
-		if (time <= 0) {
-			console.log("time is up");
+		if (time == 0) {
+			// console.log("time is up");
 			clearInterval(interval);
 			interval = null;
 		}
-		console.log(time);
-		var formatedTime = timeFormater(time);
-		console.log(formatedTime);
-		$("#timer").text(formatedTime);	
+		if(time >=0){
+			var formatedTime = timeFormater(time);
+			console.log(formatedTime);
+			$("#timer").text(formatedTime);	
+		}else{
+			clearInterval(interval);
+			interval = null;
+		}
+		
 	}
 
 	function delta(){
@@ -30,11 +34,11 @@ function Clock(val){
 		var minutes = time.getMinutes().toString();
 		var seconds = time.getSeconds().toString();
 
-		if (minutes < 10) {
+		if (minutes.length < 2) {
 			minutes = "0" + minutes;
 		}
 
-		if (seconds < 10) {
+		if (seconds.length < 2) {
 			seconds = "0" + seconds;
 		}
 
@@ -66,7 +70,5 @@ function Clock(val){
 		time -= 1000 * 60;
 		console.log(time);
 	};
-
-
 
 }

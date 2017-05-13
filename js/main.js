@@ -1,8 +1,6 @@
 $(document).ready(function() {
 
     $('.btn').click(function(e) {
-        console.log(e);
-
         var new_time ;
         var break_time;
         var working_time;
@@ -46,14 +44,23 @@ $(document).ready(function() {
 
     var clock = new Clock(25);
 
+    function playMusic(){
+        var music = "adventures-sound.mp3";
+        var audio = new Audio(music);
+        audio.play();
+    }
+
     $("#timer").click(function(){
-    	if (!clock.isOn) {
-    		clock.start();
-    		clock.isOn = true;
-    	}else{
-            clock.stop();
-    		clock.isOn = false;
-    	}
+            if (!clock.isOn) {
+                clock.start();
+                clock.isOn = true;
+            }else{
+                clock.stop();
+                clock.isOn = false;
+            }
     });
+
+
+
 
 });
