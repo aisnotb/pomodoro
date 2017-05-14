@@ -3,23 +3,21 @@ function Clock(val){
 	var interval;
 	var offset;
 	this.isOn = false;
+	this.isTimeUp = false;
 
 	function update(){
 		time -= delta();
-		if (time == 0) {
-			// console.log("time is up");
-			clearInterval(interval);
-			interval = null;
+		if (time <= 0) {
+			this.stop();			
+			this.isTimeUp = true;
+			console.log(this.isTimeUp);
 		}
-		if(time >=0){
+		//time can be negative numbers
+		if(time > 0){
 			var formatedTime = timeFormater(time);
 			console.log(formatedTime);
 			$("#timer").text(formatedTime);	
-		}else{
-			clearInterval(interval);
-			interval = null;
 		}
-		
 	}
 
 	function delta(){
@@ -47,9 +45,10 @@ function Clock(val){
 
 	this.start = function(){
 		if (!this.isOn) {
-			interval = setInterval(update, 10);
+			interval = setInterval(update.bind(this), 10);
 			offset = Date.now();
 			this.isOn = true;
+			this.isTimeUp = false;
 		}
 	};
 
@@ -58,6 +57,16 @@ function Clock(val){
 			clearInterval(interval);
 			interval = null;
 			this.isOn = false;
+		}
+	};
+
+	this.getter = function(){
+		return this.isTimeUp;
+	};
+
+	this.setter = function(){
+		if (time <= 0) {
+			this.isTimeUp = true;
 		}
 	};
 
