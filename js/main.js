@@ -18,7 +18,7 @@ $(document).ready(function() {
         	console.log("not ok");
         	working_time = parseInt($("#working-time").text());
         	// console.log(working_time);
-        	working_time = (working_time - 1).toString();
+        	working_time = (working_time - 5).toString();
         	if (working_time > 0) {
         		$("#working-time").text(working_time);
         		$("#timer").text(working_time);
@@ -34,7 +34,7 @@ $(document).ready(function() {
         }else{
         	console.log("working-time add");
         	working_time = parseInt($("#working-time").text());
-        	working_time = (working_time + 1).toString();
+        	working_time = (working_time + 5).toString();
         	$("#working-time").text(working_time);
         	$("#timer").text(working_time);
             clock.increase();
